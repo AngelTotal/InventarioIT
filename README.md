@@ -48,3 +48,4 @@ Aplicación web moderna para la gestión de activos de TI, desarrollada con Reac
 
 La aplicación está lista para conectarse a una API REST real. Actualmente utiliza `AuthContext` y datos mock para demostración.
 Para producción, se recomienda implementar un backend en Node.js/Express o Python conectando a PostgreSQL.
+"# InventarioIT" 
