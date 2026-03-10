@@ -11,12 +11,26 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch($method) {
     case 'GET':
-        $sql = "SELECT a.*, i.name as item_name, i.code as item_code 
+        // Fetch assignments from assignments table (Source of Truth)
+        $sql = "SELECT a.id, a.inventory_id, a.assigned_to as employee_name, i.name as item_name, i.code as item_code, 
+                a.date_assigned, a.department, a.comments 
                 FROM assignments a 
-                JOIN inventory i ON a.inventory_id = i.id 
+                LEFT JOIN inventory i ON a.inventory_id = i.id
                 ORDER BY a.date_assigned DESC";
         $stmt = $pdo->query($sql);
         jsonResponse($stmt->fetchAll());
+        break;
+
+    case 'POST':
+        $data = json_decode(file_get_contents("php://input"), true);
+        $sql = "INSERT INTO assignments (inventory_id, assigned_to, department, date_assigned, comments) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$data['asset_id'], $data['employee_name'], $data['department'], $data['date_assigned'], $data['comments'] ?? '']);
+        
+        // Update inventory status if it's a main asset (optional, but good practice)
+        // $pdo->prepare("UPDATE inventory SET status = 'En Uso' WHERE id = ?")->execute([$data['asset_id']]);
+        
+        jsonResponse(["message" => "Asignación creada", "id" => $pdo->lastInsertId()]);
         break;
 
     case 'DELETE':
@@ -30,9 +44,10 @@ switch($method) {
     case 'PUT':
         $id = $_GET['id'];
         $data = json_decode(file_get_contents("php://input"), true);
-        $sql = "UPDATE assignments SET assigned_to = ?, department = ? WHERE id = ?";
+        $valName = $data['employee_name'] ?? $data['assigned_to'];
+        $sql = "UPDATE assignments SET assigned_to = ?, department = ?, comments = ? WHERE id = ?";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$data['assigned_to'], $data['department'], $id]);
+        $stmt->execute([$valName, $data['department'], $data['comments'] ?? '', $id]);
         jsonResponse(["message" => "Asignación actualizada"]);
         break;
 }

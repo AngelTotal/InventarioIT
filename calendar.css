@@ -1,0 +1,192 @@
+/* Calendar Styles */
+.mini-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+}
+
+.mini-calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+@media (max-width: 576px) {
+    .mini-calendar-grid {
+        gap: 2px;
+        font-size: 0.65rem;
+        /* For the header days */
+    }
+
+    .mini-calendar-day {
+        font-size: 0.85rem;
+    }
+}
+
+.mini-calendar-day {
+    transition: all 0.2s;
+    color: inherit;
+    position: relative;
+}
+
+body.dark-mode .mini-calendar-day {
+    color: var(--dark-text);
+}
+
+.mini-calendar-day:hover {
+    background-color: var(--bg-hover-custom, rgba(204, 0, 0, 0.1));
+    color: var(--bs-primary);
+    font-weight: bold;
+}
+
+.mini-calendar-day.today {
+    background-color: #cc0000;
+    color: white !important;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(204, 0, 0, 0.4);
+}
+
+.reminder-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 16px;
+    height: 16px;
+    background-color: #007bff;
+    /* Blue as requested */
+    color: white;
+    font-size: 0.65rem;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #1a1c23;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.mini-calendar-day.today .reminder-badge {
+    border-color: #cc0000;
+}
+
+.reminder-badge.holiday {
+    background-color: #ff0000 !important;
+    /* Red for non-working days */
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+}
+
+.mini-calendar-day.empty {
+    pointer-events: none;
+}
+
+/* Full Calendar Modal Grid */
+.full-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.full-calendar-day {
+    min-height: 90px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 8px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+body.dark-mode .full-calendar-day {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+.full-calendar-day:hover {
+    border-color: var(--bs-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.full-calendar-day.selected {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 2px rgba(204, 0, 0, 0.2);
+    background-color: rgba(204, 0, 0, 0.02);
+}
+
+.full-calendar-day.today {
+    background-color: rgba(204, 0, 0, 0.05);
+    font-weight: bold;
+    border-color: rgba(204, 0, 0, 0.3);
+}
+
+body.dark-mode .full-calendar-day.today {
+    background-color: rgba(204, 0, 0, 0.2);
+}
+
+.day-number {
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+}
+
+.day-event-dots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+.event-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--bs-primary);
+}
+
+.reminder-item {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    padding: 10px;
+    border-left: 3px solid var(--bs-primary);
+    transition: all 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body.dark-mode .reminder-item {
+    background: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+.reminder-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.event-dot.holiday {
+    background-color: #ff0000 !important;
+    box-shadow: 0 0 4px rgba(255, 0, 0, 0.5);
+}
+
+.reminder-item.holiday-item {
+    border-left: 3px solid #ff0000 !important;
+    background-color: rgba(255, 0, 0, 0.02);
+}
+
+body.dark-mode .reminder-item.holiday-item {
+    background-color: rgba(255, 0, 0, 0.05);
+}
+
+.x-small {
+    font-size: 0.7rem;
+}

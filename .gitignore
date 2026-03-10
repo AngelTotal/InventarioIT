@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Uploads and User Data
+uploads/
+db_backups/
+ftp_files/

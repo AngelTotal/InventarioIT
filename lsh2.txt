@@ -1,0 +1,114 @@
+100644 blob 9a5f9c25d5a238c423d41f1d0bbabf9841b6dfcd	.gitignore
+100644 blob a003ecd361fa117343720fcb7e5c38c31832ae43	README.md
+100644 blob ceb381e2ffe041c66502716b25bbc360e8eed9f8	app.js
+100644 blob 3c42a0162246619dce16cdd2871fed190e60ff05	backend/api/account_management.php
+100644 blob 5d8b992b1d1329f95c57daab46d13b81c92c5962	backend/api/add_comments_global.php
+100644 blob c5ef775df7cb502b3bf738517691163e7e77281c	backend/api/add_format_column.php
+100644 blob 1f906884f586f1feaf8c6eb6268e01df1a585da9	backend/api/add_is_network_column.php
+100644 blob 2d285bcafd45041704ee2947bb667ff87d71ae00	backend/api/assignments.php
+100644 blob ef4d501b3897ba380ee114610ed4be92a2a8c5af	backend/api/calendar.php
+100644 blob 6b679f25ab78d219d0142a2a683a742b6cd23618	backend/api/cellphones.php
+100644 blob 44db4c2ff622aebc316d99b4a6828ade41463a0b	backend/api/check_columns.php
+100644 blob 071b276cbec9e859e9fb8906139d0085178e5ea7	backend/api/check_data.php
+100644 blob 7f14488057ebbbb65edf2afe203778099d4e0ebd	backend/api/check_monitors.php
+100644 blob d44ee59a22e6a83102296f161ae95c3d9d3b291a	backend/api/check_specific.php
+100644 blob c246d469e8c0a4246e61bf759e4791943e31c650	backend/api/check_toner_structure.php
+100644 blob 840fa9d2acf87863e1bd9ec2dbf3f9ea3b3b3cc8	backend/api/clean_db.php
+100644 blob d7ce5052efd3bd04a16e834c853ee7f960afdac7	backend/api/config.php
+100644 blob 5fdb50c29c9b7fdf29f44299cb5da43e3914876f	backend/api/correos_outlook.php
+100644 blob 983507767e9f2628ac9b6dfa9890b11d74092bdb	backend/api/create_printers_table.php
+100644 blob 126edc1f2c3af3cda618cbc49c807dd93114b47e	backend/api/debug_cats.php
+100644 blob 4add75dfb6042cccb85ee7c29a7275b2d470f96f	backend/api/debug_names.php
+100644 blob 97f5b40c824782e1a996b724908fe6e17aa0b873	backend/api/emails.php
+100644 blob cd129c8eaaba8480965d43806de501947913dec8	backend/api/enterprise_networks.php
+100644 blob 31c2ef76e9647a2094b10d3631456e78fa8fb790	backend/api/fix_db.php
+100644 blob 91e6974e37153e182a88f09edb05cbd8400bba02	backend/api/fix_enterprise_comments.php
+100644 blob 31eec3918c1f9531980ced7e493f8bef906a0665	backend/api/fix_table.php
+100644 blob a7dfdfc6bcca9eb488afa72fc45f1571d4b07f7e	backend/api/ftp.php
+100644 blob 0340ab6e3c9a87c879e8a0add9bc38a90a6dcce8	backend/api/global_search.php
+100644 blob f2a7d28a50dca402337c2d7be5efd0a763aff45c	backend/api/inks.php
+100644 blob b44396f2f9842ec80799d90574edc6c66bd05b5f	backend/api/insert_mock_printers.php
+100644 blob 269a7d8b21197b0ea70c6af9502df5a769011f41	backend/api/inventory.php
+100644 blob 7e5e191551f39ce406a64fd7eb48c46a24893532	backend/api/licenses.php
+100644 blob 6bc332fc14d2e70e174380945ad11bf7ae733416	backend/api/load_cellphones.php
+100644 blob 47e8c582dbe53230181acbb7fca44ff42d808276	backend/api/load_hardware.php
+100644 blob bf689721f92b5dd14212b91574aef4401033d399	backend/api/login.php
+100644 blob d538a53a9a78e88991b3bff81c1e103f4d029849	backend/api/maintenance.php
+100644 blob 4b626b94ce8419a72fffa1f9638472a95640ea7d	backend/api/microsoft_emails.php
+100644 blob 38ae40934f491eb40cec827e5fe72b3bcc30f265	backend/api/migrate_it.php
+100644 blob 1b3e769705fa3da2100ece19b1e102a198255936	backend/api/migrate_monitors.php
+100644 blob fe60a38cfeb15468b6a13f6c7e640566ed2da4d7	backend/api/migrate_printers.php
+100644 blob 9a852b29b52772f22f34f50894830b3ae9bafa42	backend/api/migrate_to_printers_table.php
+100644 blob aef43e2faa7375c4289683ad16288040e4617c6a	backend/api/network.php
+100644 blob 2e22db5e4fc1da0abd69a5eed98f09a8c7bc8259	backend/api/notes.php
+100644 blob 2476e70ba2eecb16583e708e1632ca40f2559879	backend/api/office_emails.php
+100644 blob 4d02ec9b1e1483847644e1909468683424396e0d	backend/api/peripherals.php
+100644 blob c1b2b91c133576421db6ad3e7f31cd5956541701	backend/api/printers.php
+100644 blob 37afcf96fcaa0f38ae4059085d4aa99d433b0a52	backend/api/stats.php
+100644 blob a44bc839d7dc88a796b1d6ef911a5a14ac1be3b4	backend/api/toner.php
+100644 blob 7f6fc1c6d81eebc6e46bac30fd3f71133621a35a	backend/api/tutorials.php
+100644 blob fa12de10453f8c36d177fb64b3793cbaf28e8752	backend/api/update_outlook_table.php
+100644 blob b2b9f5b3fba0027ee96cb7f2d43f24226667be48	backend/api/users.php
+100644 blob 2f4c949332c97d4965dbcb3059173bf5cffaa024	backend/api/verify_migration.php
+100644 blob fbc9d610e27fe5c63aa089fed63c000f831f64e0	bulk_insert_network.php
+100644 blob 82cedc06125a3fdcce587d70159af7d3813f88c2	calendar.css
+100644 blob 53296ba39f815cba36ff66c048e33f5a08c0412d	check_created_at.php
+100644 blob c5e66b88774f2eb605bd466893b1abdb9022d36e	check_db.php
+100644 blob f6c77f349e68f02e458a3c3ad668449d0abda5d6	check_db_simple.php
+100644 blob bc88ad3a39ebea607132e6e6cdddc6dcfd633a7b	check_ips.php
+100644 blob 82746dbf74bf7c37ad35ce147047ae10cd57b2b5	check_peri.php
+100644 blob 9fd3d5cb4fb591dedcdac7348d2729e0aea22772	check_peri_fields.php
+100644 blob 9080e9b5f2636a953b3f814de9b9a328cee93e2c	check_peri_full.php
+100644 blob ad3564e8408a100278b519d2d2bd1c287ffabbc3	database_structure.sql
+100644 blob 5435386464a69315aeda3f516cb7f4f29eff744d	db_backups/full_backup_2026-02-25_12-25.sql
+100644 blob 9080e9b5f2636a953b3f814de9b9a328cee93e2c	debug_peri.php
+100644 blob 0f2175f85a7f3c280ed2a0d9d98f9e5d9e86b47a	fix_encoding.js
+100644 blob 33ae5c4d000b606138333c8ed52cfd7802132c89	fix_encoding_v2.js
+100644 blob 077ea9f390d246148cae5e67384c568a7b0f2660	ftp_files/AcroRdrDC2100720099_es_ES.exe
+100644 blob 3ac32d650dd0bd8a2bb0099b4b1115887fcb53f3	ftp_files/Adobe Photoshop 2026 v27.zip
+100644 blob e12df6e6d6ee39f1285cc2f8d91ded9257ea0c76	ftp_files/AnyDesk.exe
+100644 blob fe012224891df8bd168dd6a53286ce602e6beabc	ftp_files/ChromeSetup.exe
+100644 blob fa8ce98c88c5ed4582ab63927cc5e190416dc362	ftp_files/Office365Setup.exe
+100644 blob 8925ef213fd0317ac9388d3b6212fd0994a9ac57	ftp_files/OfficeSetup.exe
+100644 blob 956209450427bc79e9e63ad1921f3db6f4339641	ftp_files/Reader_es_install.exe
+100644 blob 225625c4ff1afe0b014241a0820e8b5eefb92222	ftp_files/Webex.exe
+100644 blob 7d32bff05adf1c9fb9eb645526d8cfe6a540fdaf	ftp_files/ZoomInstallerFull.exe
+100644 blob f09327824616050310ce41f1d51480119b74812d	ftp_files/file_aliases.json
+100644 blob 62d2b5e342355016ea24d934f13a246784494a42	ftp_files/z05587L1f-10.exe
+100644 blob 62d2b5e342355016ea24d934f13a246784494a42	ftp_files/z05587L1f.exe
+100644 blob 64e6f8c98326cb485b7fc9c682959cd07da9df0d	ftp_files/zebradesigner3-330104.exe
+100644 blob 5c324eeadd59581cbaa440288fec9e704a6f55cf	images/01-TG Logo Blanco.png
+100644 blob d8807ba78fb99081c9c7445c62f6af636334d203	images/02-TG-Logo.png
+100644 blob 141fb9592e4ccdc4f97aa4c8274e4d38a1fc7dd8	images/TG-Rayo_Fondo-negro.ico
+100644 blob 579672dccce6cf1084ee241313040df8f4de487b	index.html
+100644 blob 105187e8cd47a2f150384e222ee4bc488ccdabf6	list_peri_fields.php
+100644 blob 7a2dbfb6fdba1985b16922c19bb94dc9223f9404	respaldar_base_de_datos.bat
+100644 blob 46bfffb7253f047e74d5e55f3abf825bcc7686f7	start_server.bat
+100644 blob 4abcbe82a86b6efb28f4be9807a6e22fcb78a930	style.css
+100644 blob e736c2c5e1fb18e2360af8dcbb7a7d53f0ef68f3	test_comments.php
+100644 blob d4c97c5dda0c64013584a23e92221fa3069cc07e	tmp_check_db.php
+100644 blob a7ae6c34935a4ccfb04c855c9c4c5da68c1c73db	tmp_check_hashes.php
+100644 blob fade313826ce7064c3abc1ad1b574c281bc11f7c	tmp_list_users.php
+100644 blob e95b04a02bfca6df82cbbb6f76859f13b1a0c7f3	uploads/tutorials/1767999011_CONFIGURACION ESCANER IMPRESORA LANIER SP5200S.pdf
+100644 blob 00da5f44ce079955db3ccefdc11565c8fa900682	uploads/tutorials/1768001799_instructivo para ingresar nueva cuenta de correo a Outlook_1.pdf
+100644 blob 5767c07d9e2ec3a1435cfb033e7f3a2190868d67	"uploads/tutorials/1769818075_Documentaci\303\263n de procesos TI (ACCESOS COMPARTIDOS).pdf"
+100644 blob 4562d2bff7aa9b4d6adec94323dbc6f77775941d	"uploads/tutorials/1769818189_Documentaci\303\263n de procesos TI (ADOBE ACROBAT).pdf"
+100644 blob 4f371767ef5f4b2448177764ef9d746741ef3624	"uploads/tutorials/1770317847_Documentaci\303\263n de procesos TI (SOFTWARE).pdf"
+100644 blob 77abdd41bf55a9b49650e0dd3bec314b33c8173c	"uploads/tutorials/1770317924_Documentaci\303\263n de procesos TI (SERVIDOR).pdf"
+100644 blob c44dd2b1b01f1ed37277e2c98118d288e59f3d34	uploads/tutorials/1770317972_Documentacion de procesos TI (PARTICION DE DISCO DURO).pdf
+100644 blob a37e76eec573ad8766a9962ce23a749fae67e96f	uploads/tutorials/1770318018_Documentacion de procesos TI (MSCONFIG.).pdf
+100644 blob c7223b0bdf10ce38a6786ebdea5dd68d65b8c60b	"uploads/tutorials/1770318062_Documentaci\303\263n de procesos TI (MANTENIMIENTO PCS.).pdf"
+100644 blob 154b742e64c6de7254692f8761a36bb1698b4c78	"uploads/tutorials/1770318144_Documentaci\303\263n de procesos TI (MANTENIMIENTO LAPTOP.).pdf"
+100644 blob 7bc207728729aace1e65c11da9e01e0a06f022e7	uploads/tutorials/1770318196_Documentacion de Procesos TI (INSTALACION Y ACTIVACION DE OFFICE.).pdf
+100644 blob 325d601b93b2be7cbc7853c6f9d2886f8397043b	uploads/tutorials/1770318268_Documentacion de Procesos TI (INSTALACION DEL SISTEMA OPERATIVO.).pdf
+100644 blob e4be9b439cfb5e6fdfd7d5fa7794ce09e4a7c0b8	uploads/tutorials/1770318293_Documentacion de procesos TI (INSTALACION DE WIN RAR.).pdf
+100644 blob 2c1cdbb6f0d99d89acd50929fe27210328606e3e	uploads/tutorials/1770318322_Documentacion de Procesos TI (INSTALACION DE PROGRAMAS PARA MAC).pdf
+100644 blob e21d687582352ba348a50504a182d4bc7dcb91ce	uploads/tutorials/1770318398_Documentacion de procesos TI (INSTALACION DE GOOGLE.).pdf
+100644 blob d3f0cdbcbcf56fe493ddda4653994563c1140cda	uploads/tutorials/1770318436_Documentacion de procesos TI (INSTALACION DE ADOBE.).pdf
+100644 blob e41653851344dfb4ca6ba6f2c5a1f4423c313ff2	"uploads/tutorials/1770318516_Documentaci\303\263n de Procesos TI (FALLAS Y SOLUCIONES).pdf"
+100644 blob 49429e7e670a96bea0b20ddb15ca772d12f4f78b	uploads/tutorials/1770318562_Documentacion de Procesos TI (ERRORES DE RED.).pdf
+100644 blob b2adc975aa63b1d67bac6b4998637c7f8c0f733b	uploads/tutorials/1770318610_Documentacion de Procesos TI (CREACION CUENTA USUARIO).pdf
+100644 blob 6e5ceeaf0afac75b5d0c8ff5f6bc7f71ef92f802	uploads/tutorials/1770318630_Documentacion de Procesos TI (CORREO.).pdf
+100644 blob c09c42b7d7c6d90f7baf20cc1693584ed655b714	uploads/tutorials/1770318687_Documentacion de Procesos TI (CONFIGURACION DE UNA IMPRESORA WINDOWS.).pdf
+100644 blob 332e59b72ee9474f6e53d75cc21f94c8e644f742	uploads/tutorials/1770318724_Documentacion de procesos TI (CONFIGURACION DE RED.).pdf
+100644 blob 908176bd88c5356bebc0bdedad78bee92c507c8e	uploads/tutorials/1770318755_Documentacion de Procesos TI (COMO HACER UN RESPALDO.).pdf

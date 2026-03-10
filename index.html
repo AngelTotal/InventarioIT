@@ -1,200 +1,1436 @@
-<!DOCTYPE html>
-<html lang="es">
+﻿<!DOCTYPE html>
+<html lang="es-MX">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT Inventory | Control de Activos</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
+    <title>Inventario | Total Ground</title>
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#CC0000">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/TG-Rayo_Fondo-negro.ico">
+    <link rel="stylesheet" href="style.css?v=4.0">
+    <link rel="stylesheet" href="calendar.css?v=2.0">
 </head>
-<body class="dark-mode">
+
+<!--⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣀⡄⠐⠶⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢀⡴⠋⡤⢀⠂⠄⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢰⠛⣀⡚⠄⠁⠀⡎⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⣰⠻⢸⢡⠏⠐⠁⠉⡙⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢴⠋⠰⡹⠏⠐⣉⠢⠐⢉⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣴⡖⢶⣶⢦⣤⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⡤⢖⠲⠉⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⣰⠎⠀⡅⡿⡀⠨⡅⠌⢌⡄⠰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡿⢻⠙⢭⠬⣯⣭⣟⡛⠯⡽⣿⣷⡶⠶⠶⢒⣩⠴⠏⠳⠭⠜⢄⠢⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢀⡟⠀⢘⠰⢃⢡⠒⠡⠌⡄⢀⠄⢣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⢠⡸⣝⣂⠫⣕⠛⠞⢻⡙⠳⣀⠔⡰⠒⢧⣋⠦⣍⠏⣓⢂⢦⣀⠀⠀⠠⠀⠄⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢸⢞⠀⡜⡘⠔⢡⡸⡥⠊⡐⠊⣠⠄⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣇⢚⣧⠘⡬⠩⠍⠳⠒⢋⢄⡚⣐⢋⠲⣜⠲⣚⡚⡄⠂⠄⠠⠀⡄⠠⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢼⣌⠦⡑⡘⢨⠖⣡⢴⠂⣱⠃⠐⣫⢆⣽⣛⣶⠶⡤⣤⠤⢤⢄⠀⠀⢠⣿⣿⣶⣀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣖⢯⣂⡱⣉⢭⡓⠭⣶⣘⡸⠥⢋⡏⣭⠫⣥⠩⣄⠩⠌⠤⡁⠄⠤⠀⠌⠐⠠⠈⠀⢀⠀⠀⠀⠀⠀⠀
+⢸⣏⡇⠴⢡⠋⡴⣘⡥⣴⣡⣞⠮⣥⡛⠰⠛⣮⡱⠷⣾⣿⣯⣿⠀⢠⣿⠿⠟⢯⡻⠷⣲⣦⣴⣻⣿⣿⣿⣯⣯⣷⣽⡻⣝⣶⡈⠷⣆⡫⢝⡹⢳⡜⠰⠉⠦⡓⠬⠓⠬⢀⠑⠈⢂⠡⢀⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣼⡷⢪⠱⣎⠴⣱⣿⣱⣿⣳⣾⣻⣾⡵⣼⣳⢻⣏⢷⡌⣿⣿⠛⠀⠀⠸⡒⡾⣮⣿⣶⣜⢿⣿⣿⡿⣿⢻⡻⢿⣎⣟⣱⢮⡒⣽⡒⢥⠚⠦⣉⠧⣘⢣⠓⡄⢐⡐⢈⡐⠂⠌⢂⠄⡀⠂⠌⠠⠁⢂⠀⠀⠀⠈⠀⠀⠀
+⢹⣧⣏⡗⡾⢰⣻⣿⢿⣿⣿⣷⣿⡟⢹⣿⣿⣇⢻⣞⣿⣿⣿⠀⠀⠀⠀⠀⠙⠏⢼⣻⠻⣟⣏⢿⡿⢟⡪⡛⢯⣝⣯⣝⠻⠿⣄⠛⠣⠌⣄⡂⠊⡔⢢⠉⡈⠒⠤⢃⡰⠈⡌⢠⠀⠂⠡⠐⡀⠀⠀⠀⠁⠀⠈⠀⠀⠀
+⠀⢹⣟⣞⡿⣾⣿⣿⣿⣿⣿⣿⣿⣅⣿⣿⡿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣇⣿⣽⣦⣛⢿⣽⣾⣦⣽⡎⡛⢿⣗⢶⣦⡙⢶⣀⢙⠳⣌⠂⠗⣬⠘⡐⢢⠡⣃⠜⠠⠒⠄⠂⠁⠄⡁⢂⠀⠀⠀⠀⠀⠀⠀
+⠀⠈⣿⣼⢿⣿⣿⣿⣿⣿⣿⡿⣿⣿⣿⣿⠃⢿⣿⣿⡇⢻⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠷⠛⠹⣿⣯⠹⣾⣊⠿⣿⣿⣾⣄⠙⣿⣿⠹⣆⣻⣦⠀⡙⢦⡀⠘⡳⣔⣁⠌⢂⢩⢒⡉⠌⠁⠂⠀⠀⠂⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠸⣽⣷⣹⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⣷⡄⢻⣏⠻⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⣇⠙⢿⣦⠈⠻⠏⠛⠦⠈⠙⠃⠈⠉⢻⣾⣔⢆⠙⠳⣌⠱⢫⢦⡀⢢⠑⠌⡆⠡⠀⠀⠀⠀⠁⢂⠀⠀⠀⠀⠀
+⠀⠀⠀⠙⣮⢣⢿⣿⣿⣿⣿⣎⣿⢿⣿⣆⠙⢿⡆⠹⢶⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠙⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⢿⡆⠀⠈⠳⣌⡨⠉⠢⣄⠠⠈⠑⠂⠄⠁⠠⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠉⡧⣻⣛⢿⡻⣿⣿⡘⣧⢻⣧⡀⠀⠙⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠈⠛⢦⡀⠸⣅⢆⠀⠀⠀⠈⠄⠡⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠘⡅⠟⣮⡱⣼⡃⢻⣌⢆⠻⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠀⢸⣎⢣⠀⠀⠀⠈⠠⢁⠠⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠘⣈⢎⢷⣎⡳⡄⠹⣯⣦⠈⠳⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢨⢇⡈⠄⠀⠀⠀⠂⠐⡀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢎⡌⠻⢷⣎⢣⡘⢿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠜⣠⠀⠀⠀⠀⠐⠠⠁⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡱⢢⢍⠳⣶⡈⠻⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⠀⠀⠀⠀⠐⠠⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠩⢎⡵⢤⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠘⢧⢇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠊⠷⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠱⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+-->
+
+<body class="bg-light">
+    <!-- Inline cache-busting overrides for dropdown -->
+    <style>
+        .col-picker-dropdown {
+            background-color: #ffffff !important;
+            z-index: 1050 !important;
+            border: 1px solid rgba(0, 0, 0, 0.1) !important;
+            min-width: 250px !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        body.dark-mode .col-picker-dropdown {
+            background-color: #1a1c23 !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        .col-picker-dropdown .dropdown-header {
+            color: inherit !important;
+        }
+
+        /* Responsive Table to Cards */
+        @media (max-width: 768px) {
+            .responsive-table-cards thead {
+                display: none;
+            }
+
+            .responsive-table-cards,
+            .responsive-table-cards tbody,
+            .responsive-table-cards tr,
+            .responsive-table-cards td {
+                display: block;
+                width: 100%;
+            }
+
+            .responsive-table-cards tr {
+                background: #fff;
+                margin-bottom: 1rem;
+                border-radius: 12px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                padding: 1rem;
+                border: 1px solid #eef2f7;
+            }
+
+            body.dark-mode .responsive-table-cards tr {
+                background: #1e2128;
+                border-color: #2e323a;
+            }
+
+            .responsive-table-cards td {
+                text-align: right;
+                padding: 0.5rem 0;
+                border: none;
+                position: relative;
+                padding-left: 50%;
+                min-height: 2.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+            .responsive-table-cards td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                font-weight: 700;
+                text-align: left;
+                font-size: 0.75rem;
+                color: #64748b;
+                text-transform: uppercase;
+            }
+
+            .responsive-table-cards td:last-child {
+                border-top: 1px solid #f1f5f9;
+                margin-top: 0.5rem;
+                padding-top: 1rem;
+                justify-content: center;
+                padding-left: 0;
+            }
+
+            .responsive-table-cards td:last-child::before {
+                display: none;
+            }
+        }
+
+        /* Actionable Badge Dropdown */
+        .status-dropdown-trigger {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .status-dropdown-trigger:hover {
+            transform: scale(1.05);
+        }
+
+        .dropdown-item-status {
+            font-size: 0.85rem;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+        }
+    </style>
+
+    <!-- 15. Theme Circle Shutter Overlay -->
+    <div class="theme-shutter" id="theme-shutter"></div>
+
+    <!-- 14. Custom Context Menu -->
+    <div id="context-menu">
+        <div class="context-menu-item" id="ctx-edit"><i class="bi bi-pencil"></i> Editar</div>
+        <div class="context-menu-item" id="ctx-view"><i class="bi bi-eye"></i> Ver Detalles</div>
+        <div class="context-menu-item" id="ctx-duplicate"><i class="bi bi-clipboard-plus"></i> Duplicar</div>
+        <div class="dropdown-divider border-secondary opacity-10"></div>
+        <div class="context-menu-item text-danger" id="ctx-delete"><i class="bi bi-trash"></i> Eliminar</div>
+    </div>
+
     <!-- Login Screen -->
-    <div id="login-screen" class="screen active">
-        <div class="login-container">
-            <div class="login-card glass-panel fade-in">
-                <div class="login-header">
-                    <div class="logo-wrapper">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <div id="login-screen"
+        class="d-flex align-items-center justify-content-center vh-100 bg-primary bg-gradient position-relative">
+
+        <!-- Theme Toggle for Login -->
+        <button id="login-theme-toggle" type="button"
+            class="btn btn-light login-toggle-btn position-fixed top-0 end-0 m-4 animate-fade-in">
+            <i class="bi bi-sun fs-4"></i>
+        </button>
+
+        <div class="card shadow-lg border-0 login-card">
+            <div class="card-body p-5">
+                <div class="text-center mb-4">
+                    <img id="login-logo" src="images/02-TG-Logo.png" alt="Total Ground" class="img-fluid mb-4"
+                        style="max-height: 400px;" decoding="async" fetchpriority="high">
+                    <div class="d-flex align-items-center justify-content-center gap-3 mt-2">
+                        <i class="bi bi-pc-display text-dark" style="font-size: 3.2rem;"></i>
+                        <h1 class="fw-bold m-0" style="color: #CC0000; font-size: 2.5rem; letter-spacing: -1px;">
+                            Inventario</h1>
                     </div>
-                    <h1>IT Inventory</h1>
-                    <p class="subtitle">Gestión de Activos Tecnológicos</p>
                 </div>
                 <form id="login-form">
-                    <div class="form-group">
-                        <label for="username">Usuario</label>
-                        <div class="input-container">
-                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                            <input type="text" id="username" placeholder="Ingrese su usuario" required>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Usuario</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-person"></i></span>
+                            <input type="text" id="username" class="form-control" placeholder="usuario" required>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="password">Contraseña</label>
-                        <div class="input-container">
-                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                            <input type="password" id="password" placeholder="••••••••" required>
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold">Contraseña</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                            <input type="password" id="password" class="form-control" placeholder="••••••••" required>
                         </div>
                     </div>
-                    <div id="login-error" class="error-msg hidden">Credenciales inválidas.</div>
-                    <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+                    <div id="login-error" class="alert alert-danger d-none py-2 px-3 small">Credenciales inválidas</div>
+                    <button type="submit" class="btn btn-primary w-100 py-2 fw-bold rounded-3 shadow-sm">Iniciar
+                        Sesión</button>
                 </form>
-                <div class="login-footer">
-                    <p>Acceso restringido a personal de TI</p>
-                </div>
             </div>
         </div>
     </div>
 
     <!-- Main Dashboard Application -->
-    <div id="app-screen" class="screen hidden">
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="sidebar-logo"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span>IT Inventory</span>
+    <div id="app-screen" class="d-none vh-100 d-flex">
+        <!-- Sidebar -->
+        <aside class="sidebar bg-dark text-white d-flex flex-column shadow" style="width: 240px; min-width: 240px;">
+            <div id="sidebar-header" class="mb-4 text-center">
+                <img id="sidebar-logo" src="images/01-TG Logo Blanco.png" alt="Total Ground" class="img-fluid"
+                    style="max-height: 75px;" loading="lazy" decoding="async">
             </div>
-            <nav class="sidebar-nav">
-                <a href="#" class="nav-item active" data-view="dashboard">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                    <span>Dashboard</span>
-                </a>
-                <a href="#" class="nav-item" data-view="inventory">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-                    <span>Inventario</span>
-                </a>
-                <a href="#" class="nav-item" data-view="assignments">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
-                    <span>Asignaciones</span>
-                </a>
-                <a href="#" class="nav-item" data-view="licenses">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                    <span>Licencias</span>
-                </a>
-                <a href="#" class="nav-item" data-view="network">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6" y2="6"/><line x1="6" y1="18" x2="6" y2="18"/></svg>
-                    <span>Red</span>
-                </a>
-                <a href="#" class="nav-item" data-view="users" id="nav-users">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    <span>Usuarios</span>
-                </a>
-            </nav>
+
+            <div class="sidebar-nav-container flex-grow-1">
+                <nav class="nav nav-pills flex-column sidebar-nav" id="sidebar-nav">
+                    <a href="#" class="nav-link text-white mb-1 active" data-view="dashboard">
+                        <i class="bi bi-speedometer2 me-2"></i> <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="nav-link text-white mb-1" data-view="inventory">
+                        <i class="bi bi-pc-display me-2"></i> <span>Equipos</span>
+                    </a>
+                    <a href="#" class="nav-link text-white mb-1" data-view="peripherals">
+                        <i class="bi bi-mouse3 me-2"></i> <span>Periféricos</span>
+                    </a>
+                    <a href="#" class="nav-link text-white d-flex align-items-center mb-2" data-view="printers">
+                        <i class="bi bi-printer me-2"></i>
+                        <span>Impresoras</span>
+                    </a>
+                    <a href="#" class="nav-link text-white d-flex align-items-center mb-2" data-view="emails">
+                        <i class="bi bi-envelope me-2"></i>
+                        <span>Correos</span>
+                    </a>
+                    <a href="#" class="nav-link text-white mb-1" data-view="licenses">
+                        <i class="bi bi-shield-lock me-2"></i> <span>Credenciales</span>
+                    </a>
+                    <a href="#" class="nav-link text-white mb-1" data-view="network">
+                        <i class="bi bi-router me-2"></i> <span>Red</span>
+                    </a>
+                    <a href="#" class="nav-link text-white mb-1" data-view="tutorials">
+                        <i class="bi bi-journal-bookmark me-2"></i> <span>Tutoriales</span>
+                    </a>
+                    <a href="#" class="nav-link text-white mb-1" data-view="ftp">
+                        <i class="bi bi-folder2-open me-2"></i> <span>Archivos</span>
+                    </a>
+                    <a href="#" class="nav-link text-white mb-1" data-view="notes">
+                        <i class="bi bi-journal-text me-2"></i> <span>Notas</span>
+                    </a>
+                </nav>
+            </div>
+
             <div class="sidebar-footer">
-                <div class="user-profile">
-                    <img id="user-avatar" src="https://ui-avatars.com/api/?name=User&background=3b82f6&color=fff" alt="Avatar">
-                    <div class="user-info">
-                        <span id="user-name">Usuario TI</span>
-                        <span id="user-role">Admin</span>
-                    </div>
+                <!-- Administrative Management -->
+                <a href="#" class="nav-link text-white mb-1 d-none" id="nav-users" data-view="users">
+                    <i class="bi bi-people me-2"></i> <span>Usuarios</span>
+                </a>
+
+                <!-- User Profile & Settings Dropup -->
+                <div class="dropup mb-2">
+                    <a href="#" class="nav-link text-white d-flex align-items-center user-profile-trigger"
+                        id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+                        <div class="user-avatar-initials me-2" id="user-avatar-sidebar">UT</div>
+                        <div class="sidebar-text">
+                            <span class="small fw-bold d-block" id="user-name">Usuario TI</span>
+                            <span class="x-small text-white-50 d-block" id="user-role-sidebar">Administrador</span>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu sidebar-user-dropdown shadow-lg border-secondary py-2"
+                        aria-labelledby="userDropdown" style="min-width: 220px;">
+                        <li class="px-3 py-2 border-bottom border-secondary mb-1">
+                            <div class="d-flex align-items-center mb-1">
+                                <img id="user-avatar" src="" class="rounded-circle border border-secondary me-2"
+                                    style="width: 24px; height: 24px;" loading="lazy" decoding="async">
+                                <div class="fw-bold small text-truncate" id="user-name-menu">Usuario TI</div>
+                            </div>
+                            <div class="text-white-50 x-small" id="user-role-menu">Administrador</div>
+                        </li>
+                        <li>
+                            <button id="theme-toggle" class="dropdown-item py-2 d-flex align-items-center">
+                                <i class="bi bi-moon-stars me-2"></i> <span id="theme-text">Modo Oscuro</span>
+                            </button>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider border-secondary opacity-50">
+                        </li>
+                        <li>
+                            <button id="logout-btn"
+                                class="nav-link text-danger py-2 d-flex align-items-center border-0 bg-transparent w-100 ps-3">
+                                <i class="bi bi-box-arrow-left me-2"></i> Cerrar Sesión
+                            </button>
+                        </li>
+                    </ul>
                 </div>
-                <button id="logout-btn" class="logout-link">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-                </button>
             </div>
         </aside>
 
-        <main class="main-content">
-            <header class="content-header">
-                <h2 id="view-title">Dashboard</h2>
-                <div class="header-actions">
-                    <button class="btn btn-icon ripple">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-                    </button>
-                    <div class="search-bar">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                        <input type="text" placeholder="Buscar activos...">
+        <!-- Main Content Area -->
+        <main class="flex-grow-1 overflow-auto bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top py-3 shadow-sm px-4">
+                <div class="container-fluid p-0 d-flex justify-content-between align-items-center">
+                    <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-1 gap-md-0">
+                        <div class="d-flex align-items-center">
+                            <button id="sidebar-toggle">
+                                <i class="bi bi-list fs-4"></i>
+                            </button>
+                            <h2 class="navbar-brand fs-4 fs-md-3 fw-bold m-0" id="view-title">Dashboard</h2>
+                        </div>
+                        <!-- Dynamic Breadcrumbs -->
+                        <nav aria-label="breadcrumb" id="breadcrumb-container" class="ms-md-3 ps-5 ps-md-0"
+                            style="--bs-breadcrumb-divider: '›';">
+                            <ol class="breadcrumb m-0 small fw-medium" style="font-size: 0.73rem;">
+                                <!-- Injected via JS -->
+                            </ol>
+                        </nav>
                     </div>
                 </div>
-            </header>
+                <div class="d-flex align-items-center gap-3 ms-auto">
+                    <!-- QR Scanner Button -->
+                    <button id="btn-scan-qr"
+                        class="btn btn-outline-danger btn-sm rounded-pill fw-bold d-flex align-items-center gap-2 px-3">
+                        <i class="bi bi-qr-code-scan fs-5"></i>
+                        <span class="d-none d-md-inline">Escanear QR</span>
+                    </button>
 
-            <div id="content-area" class="content-body">
-                <!-- Views will be injected here -->
+                    <div class="search-group d-none" id="search-container">
+                        <div class="input-group position-relative">
+                            <span
+                                class="input-group-text bg-transparent border-0 px-3 m-0 position-absolute h-100 d-flex align-items-center"
+                                style="z-index: 5;"><i class="bi bi-search text-muted small"></i></span>
+                            <input type="text"
+                                class="form-control bg-light border rounded-pill py-2 ps-5 search-expandable"
+                                placeholder="Buscar..." id="search-input" autocomplete="off">
+                            <span class="position-absolute end-0 top-50 translate-middle-y me-3 d-none d-md-block">
+                                <span class="kbd-hint">/</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- QR Scanner Modal -->
+            <div class="modal fade" id="qrScannerModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                        <div class="modal-header bg-dark text-white border-0 py-3">
+                            <h5 class="modal-title fw-bold m-0"><i class="bi bi-qr-code-scan me-2"></i>Escáner de
+                                Activos</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body p-0 position-relative" style="background: #000; min-height: 350px;">
+                            <div id="qr-reader" style="width: 100%;"></div>
+                            <div class="scanner-overlay"></div>
+                        </div>
+                        <div class="modal-footer bg-light border-0 flex-column py-3">
+                            <p class="text-muted small m-0 mb-3">Apunta la cámara al código QR o usa una foto</p>
+                            <input type="file" id="qr-file-input" accept="image/*" capture="environment" class="d-none">
+                            <button class="btn btn-premium-red btn-sm rounded-pill px-4 fw-bold shadow-sm"
+                                onclick="document.getElementById('qr-file-input').click()">
+                                <i class="bi bi-camera-fill me-2"></i>Tomar Foto / Subir Imagen
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid p-4" id="content-area">
+                <!-- Content will be injected here -->
             </div>
         </main>
     </div>
 
-    <!-- Templates for Views -->
-    <template id="tpl-dashboard">
-        <div class="stats-grid animate-fade-in">
-            <div class="stat-card glass-panel">
-                <div class="stat-icon purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-                <div class="stat-info">
-                    <h3>Dispositivos</h3>
-                    <p class="stat-value" id="stat-devices">0</p>
+    <!-- Modal for Adding/Editing -->
+    <div class="modal fade" id="mainModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div
+                    class="modal-header bg-white border-bottom border-light py-2 px-4 d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-3">
+                        <h5 class="modal-title fw-bold text-danger m-0 fs-6" id="mainModalLabel">Añadir Nuevo</h5>
+                    </div>
+                    <button type="button" class="btn-icon-sm border-0 bg-transparent text-dark" data-bs-dismiss="modal"
+                        title="Cerrar">
+                        <i class="bi bi-x-lg fs-6"></i>
+                    </button>
                 </div>
+                <form id="modal-form">
+                    <div class="modal-body p-4">
+                        <div class="row g-3" id="form-fields">
+                            <!-- Fields injected via JS -->
+                        </div>
+                    </div>
+                    <div
+                        class="modal-footer border-0 p-3 bg-light rounded-bottom-4 d-flex justify-content-center justify-content-md-end gap-2">
+                        <button type="button"
+                            class="btn btn-premium-gray px-4 rounded-pill fw-bold btn-responsive-mobile"
+                            data-bs-modal="close" data-bs-dismiss="modal">
+                            <i class="bi bi-x-lg d-md-none"></i><span class="btn-text">Cancelar</span>
+                        </button>
+                        <button type="button"
+                            class="btn btn-outline-dark px-4 rounded-pill fw-bold btn-responsive-mobile d-none"
+                            id="btn-back-to-details">
+                            <i class="bi bi-arrow-left-short d-md-none"></i><span class="btn-text">Regresar</span>
+                        </button>
+                        <button type="submit"
+                            class="btn btn-premium-primary px-4 rounded-pill fw-bold btn-responsive-mobile"
+                            id="btn-save">
+                            <i class="bi bi-check-lg d-md-none"></i><span class="btn-text">Guardar Cambios</span>
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div class="stat-card glass-panel">
-                <div class="stat-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
-                <div class="stat-info">
-                    <h3>Asignaciones</h3>
-                    <p class="stat-value" id="stat-assignments">0</p>
+        </div>
+    </div>
+
+    <!-- Custom Delete Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 420px;">
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+
+                <!-- Red gradient header -->
+                <div style="background: linear-gradient(135deg, #cc0000 0%, #7f0000 100%); padding: 28px 28px 20px;">
+                    <div class="d-flex align-items-center gap-3">
+                        <div
+                            style="width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                            <i class="bi bi-trash3-fill text-white fs-3"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-bold text-white mb-0">¿Eliminar registro?</h5>
+                            <p class="text-white mb-0" style="opacity:0.8;font-size:0.82rem;">Esta acción es permanente
+                                e irreversible</p>
+                        </div>
+                        <button type="button" class="btn-icon-sm border-0 bg-transparent text-white ms-auto"
+                            data-bs-dismiss="modal" style="opacity:0.7;">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="stat-card glass-panel">
-                <div class="stat-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
-                <div class="stat-info">
-                    <h3>Licencias Activas</h3>
-                    <p class="stat-value" id="stat-licenses">0</p>
-                </div>
-            </div>
-            <div class="stat-card glass-panel">
-                <div class="stat-icon orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-                <div class="stat-info">
-                    <h3>Alertas Red</h3>
-                    <p class="stat-value" id="stat-network">0</p>
+
+                <div class="modal-body p-4">
+                    <!-- Record summary card -->
+                    <div id="delete-summary-card" class="delete-summary-card">
+                        <div class="d-flex align-items-center gap-3">
+                            <div id="delete-record-icon" class="delete-record-icon">
+                                <i class="bi bi-file-earmark"></i>
+                            </div>
+                            <div style="min-width:0;flex:1;">
+                                <div id="delete-record-type"
+                                    style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#94a3b8;margin-bottom:2px;">
+                                    Registro</div>
+                                <div id="delete-item-name" class="fw-bold text-dark" style="font-size:0.95rem;">
+                                    —</div>
+                                <div id="delete-item-detail" class="text-muted" style="font-size:0.78rem;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-muted small text-center mb-4">Una vez eliminado no podrás recuperar este registro
+                        desde la aplicación.</p>
+
+                    <div class="d-flex gap-2 justify-content-center">
+                        <button type="button"
+                            class="btn btn-light fw-bold px-3 flex-fill rounded-3 btn-responsive-mobile"
+                            data-bs-dismiss="modal">
+                            <i class="bi bi-arrow-left me-md-1"></i><span class="btn-text">Cancelar</span>
+                        </button>
+                        <button type="button"
+                            class="btn btn-danger fw-bold px-3 flex-fill rounded-3 btn-responsive-mobile"
+                            id="btn-confirm-delete">
+                            <i class="bi bi-trash3 me-md-1"></i><span class="btn-text">Sí, Eliminar</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="dashboard-secondary fade-in-up">
-            <div class="data-card glass-panel recent-activity">
-                <div class="card-header">
-                    <h3>Actividad Reciente</h3>
-                    <button class="btn btn-ghost btn-sm">Ver Todo</button>
+    <!-- Custom Confirm Modal -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 380px;">
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="modal-header border-0 py-2 d-flex justify-content-end p-2 bg-transparent">
+                    <button type="button" class="btn-icon-sm border-0 bg-transparent text-muted" data-bs-dismiss="modal"
+                        title="Cerrar">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
                 </div>
-                <div class="activity-list" id="recent-activity-list">
-                    <!-- Activities will be injected -->
-                    <div class="empty-state">No hay actividad reciente</div>
+                <div class="modal-body p-4 pt-0 text-center">
+                    <div class="mb-3 mx-auto text-primary bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                        style="width: 80px; height: 80px;">
+                        <i class="bi bi-question-circle-fill display-4"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2" id="confirm-modal-title">¿Confirmar Acción?</h5>
+                    <p class="text-muted small px-3" id="confirm-modal-body">¿Estás seguro de que deseas realizar
+                        este
+                        cambio?</p>
+                </div>
+                <div class="modal-footer border-0 p-4 pt-0 d-flex gap-2">
+                    <button type="button" class="btn btn-light flex-grow-1 fw-bold rounded-pill"
+                        id="btn-confirm-cancel">Cancelar</button>
+                    <button type="button" class="btn btn-primary flex-grow-1 fw-bold rounded-pill"
+                        id="btn-confirm-ok">Aceptar</button>
                 </div>
             </div>
-            <div class="data-card glass-panel tutorials-preview">
-                <div class="card-header">
-                    <h3>Guías Rápidas</h3>
+        </div>
+    </div>
+
+    <!-- View Details Modal -->
+    <div class="modal fade" id="viewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div
+                    class="modal-header bg-white border-bottom border-light py-2 px-4 d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-3">
+                        <h5 class="modal-title fw-bold text-danger m-0 fs-6" id="view-modal-title">Detalles</h5>
+                        <div id="view-modal-timestamps" class="d-flex gap-2 border-start ps-3 border-light"></div>
+                    </div>
+                    <button type="button" class="btn-icon-sm border-0 bg-transparent text-dark" data-bs-dismiss="modal"
+                        title="Cerrar">
+                        <i class="bi bi-x-lg fs-6"></i>
+                    </button>
                 </div>
-                <div class="preview-grid" id="tutorials-preview-list">
-                    <!-- Tutorials will be injected -->
+                <div class="modal-body p-4">
+                    <div class="row g-3" id="view-details-content">
+                        <!-- Details injected via JS -->
+                    </div>
                 </div>
+                <div
+                    class="modal-footer border-0 p-3 bg-light rounded-bottom-4 d-flex justify-content-center justify-content-md-end gap-2">
+                    <button type="button"
+                        class="btn btn-outline-primary px-4 rounded-pill fw-bold d-none btn-responsive-mobile"
+                        id="btn-back-to-search">
+                        <i class="bi bi-arrow-left me-md-2"></i><span class="btn-text">Volver</span>
+                    </button>
+                    <button type="button" class="btn btn-premium-gray px-4 rounded-pill fw-bold btn-responsive-mobile"
+                        data-bs-dismiss="modal"><i class="bi bi-x-lg d-md-none"></i><span
+                            class="btn-text">Cerrar</span></button>
+                    <button type="button"
+                        class="btn btn-premium-primary px-4 rounded-pill fw-bold text-white btn-responsive-mobile"
+                        id="btn-edit-from-view">
+                        <i class="bi bi-pencil me-md-2"></i><span class="btn-text">Editar</span>
+                    </button>
+                    <button type="button" class="btn btn-danger px-4 rounded-pill fw-bold btn-responsive-mobile d-none"
+                        id="btn-delete-from-view">
+                        <i class="bi bi-trash me-md-2"></i><span class="btn-text">Eliminar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inventory Linked Modal (Second Level) -->
+    <div class="modal fade" id="inventoryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header bg-dark text-white py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="modal-title fw-bold m-0" id="inventory-modal-title">Inventario Vinculado</h5>
+                    <button type="button" class="btn-icon-sm border-0 bg-transparent text-white" data-bs-dismiss="modal"
+                        title="Cerrar">
+                        <i class="bi bi-x-lg fs-5"></i>
+                    </button>
+                </div>
+                <div class="modal-body p-4">
+                    <div id="inventory-modal-content">
+                        <!-- Content injected via JS -->
+                    </div>
+                </div>
+                <div class="modal-footer border-0 p-3 bg-light rounded-bottom-4">
+                    <button type="button" class="btn btn-premium-gray px-4 rounded-pill fw-bold"
+                        data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Support Modal -->
+    <div class="modal fade" id="supportModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header bg-dark text-white py-3">
+                    <h5 class="modal-title fw-bold" id="supportModalTitle">Soporte Rápido</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4" id="supportModalBody">
+                    <!-- Dynamic Content -->
+                </div>
+                <div class="modal-footer bg-light border-0 p-3 rounded-bottom-4">
+                    <button type="button" class="btn btn-primary px-5 rounded-pill fw-bold"
+                        data-bs-dismiss="modal">Entendido</button>
+                    <button type="button" class="btn btn-outline-secondary rounded-pill fw-bold d-none"
+                        id="btn-support-action">Ver Más</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Search Results Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-hidden="true" style="padding-right: 0 !important;">
+        <div class="modal-dialog modal-fullscreen m-0 p-0">
+            <div class="modal-content border-0 shadow-none rounded-0">
+                <div class="modal-header py-1 border-0">
+                    <div class="container-fluid py-1 px-4 px-md-5">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="x-small fw-bold opacity-50 letter-spacing-1 text-uppercase"><i
+                                    class="bi bi-search me-2 text-danger"></i>BUSCADOR GLOBAL</span>
+                            <button type="button"
+                                class="btn-icon-sm border-0 bg-transparent opacity-50 hover-opacity-100 p-0"
+                                data-bs-dismiss="modal" title="Cerrar Esc (Escape)">
+                                <i class="bi bi-x-lg" style="font-size: 0.9rem;"></i>
+                            </button>
+                        </div>
+                        <div class="search-modal-search-box d-flex align-items-center gap-3 p-2 px-3 rounded-2">
+                            <i class="bi bi-search small opacity-50"></i>
+                            <input type="text" id="modal-search-input"
+                                class="form-control bg-transparent border-0 p-0 shadow-none" style="font-size: 1rem;"
+                                placeholder="Buscar equipo, licencia, usuario o tiquete..." autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body p-3 p-md-4">
+                    <div id="search-modal-results-container"
+                        class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+                        <!-- Cards injected via JS -->
+                    </div>
+                    <div id="search-modal-empty" class="text-center p-5 d-none animate-fade-in">
+                        <div class="mb-4 mx-auto text-muted opacity-25 bg-secondary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 120px; height: 120px;">
+                            <i class="bi bi-search display-1"></i>
+                        </div>
+                        <h4 class="text-muted fw-bold">Sin resultados</h4>
+                        <p class="text-muted mx-auto mb-0" style="max-width: 400px;">No se encontró nada que coincida
+                            con tu búsqueda. Intenta con términos más generales como "laptop", "tinta" o el nombre de un
+                            usuario.</p>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light border-0 p-3 rounded-bottom-4">
+                    <div class="me-auto small text-muted">
+                        <span id="search-results-count">0</span> resultados encontrados
+                    </div>
+                    <button type="button" class="btn btn-premium-gray px-4 rounded-pill fw-bold"
+                        data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Maintenance Entry Modal -->
+    <div class="modal fade" id="maintenanceModal" tabindex="-1" aria-hidden="true" style="z-index: 1100;">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="modal-header bg-dark text-white py-3 border-0">
+                    <h5 class="modal-title fw-bold m-0"><i class="bi bi-wrench-adjustable me-2"></i>Registrar
+                        Mantenimiento</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="maintenance-form">
+                        <input type="hidden" id="maint-asset-id">
+                        <input type="hidden" id="maint-asset-type">
+                        <div class="mb-4">
+                            <label class="form-label small fw-bold text-muted text-uppercase mb-2 lh-1"
+                                style="font-size: 0.65rem; letter-spacing: 0.05em;">Descripción del Trabajo</label>
+                            <textarea id="maint-description"
+                                class="form-control rounded-3 border-light-subtle bg-light bg-opacity-50" rows="3"
+                                placeholder="¿Qué se le hizo al equipo?" required style="font-size: 0.9rem;"></textarea>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-7">
+                                <label class="form-label small fw-bold text-muted text-uppercase mb-2 lh-1"
+                                    style="font-size: 0.65rem; letter-spacing: 0.05em;">Técnico / Responsable</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-light-subtle"><i
+                                            class="bi bi-person text-muted"></i></span>
+                                    <input type="text" id="maint-technician" class="form-control border-light-subtle"
+                                        placeholder="Nombre">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <label class="form-label small fw-bold text-muted text-uppercase mb-2 lh-1"
+                                    style="font-size: 0.65rem; letter-spacing: 0.05em;">Costo (MXN)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-light-subtle text-muted">$</span>
+                                    <input type="number" id="maint-cost" class="form-control border-light-subtle"
+                                        value="0" step="0.01">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer bg-light border-0 p-3 d-flex gap-2">
+                    <button type="button" class="btn btn-premium-gray px-4 rounded-pill fw-bold"
+                        data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-premium-danger px-4 rounded-pill fw-bold text-white shadow-sm"
+                        id="btn-save-maintenance-modal">
+                        <i class="bi bi-check-lg me-1"></i>Guardar Registro
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Templates for Views -->
+    <template id="tpl-dashboard">
+        <div class="dashboard-wrapper animate-fade-in pb-5">
+            <!-- Header Section -->
+            <div class="row align-items-center mb-5 g-3">
+                <div class="col-md-6">
+                    <h1 class="display-6 fw-bold mb-1 text-dark" id="welcome-msg">Dashboard</h1>
+                    <p class="text-secondary mb-0">Gestión de activos e indicadores críticos</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="position-relative" id="global-search-container">
+                        <div class="input-group shadow-sm rounded-4 overflow-hidden border-0 bg-white p-1">
+                            <span class="input-group-text bg-white border-0 ps-3">
+                                <i class="bi bi-search text-primary"></i>
+                            </span>
+                            <input type="text" id="dashboard-global-search" class="form-control border-0 py-2 ps-1 fs-5"
+                                placeholder="Buscar en todo el inventario..." autocomplete="off">
+                        </div>
+                        <div id="global-search-results"
+                            class="position-absolute w-100 bg-white shadow-lg rounded-4 mt-2 d-none blur-shadow"
+                            style="z-index: 1050; max-height: 420px; overflow-y: auto; border: 1px solid rgba(0,0,0,0.05);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. BENTO GRID LAYOUT -->
+            <div class="bento-grid">
+
+                <!-- KPI: Devices -->
+                <div class="bento-card pointer-cursor" onclick="window.switchView('inventory')">
+                    <div class="d-flex justify-content-between mb-3 text-secondary">
+                        <span class="x-small fw-bold letter-spacing-1">EQUIPOS</span>
+                        <i class="bi bi-laptop fs-5"></i>
+                    </div>
+                    <h2 class="fw-bold mb-1 display-6" id="stat-devices">0</h2>
+                    <p class="text-success x-small fw-bold mb-0 mt-auto"><i class="bi bi-arrow-up-short"></i> Activos
+                    </p>
+                </div>
+
+                <!-- KPI: Printers -->
+                <div class="bento-card pointer-cursor" onclick="window.switchView('printers')">
+                    <div class="d-flex justify-content-between mb-3 text-secondary">
+                        <span class="x-small fw-bold letter-spacing-1">IMPRESORAS</span>
+                        <i class="bi bi-printer fs-5"></i>
+                    </div>
+                    <h2 class="fw-bold mb-1 display-6" id="stat-printers">0</h2>
+                    <p class="text-primary x-small fw-bold mb-0 mt-auto">En Servicio</p>
+                </div>
+
+                <!-- KPI: Licenses -->
+                <div class="bento-card pointer-cursor" onclick="window.switchView('licenses')">
+                    <div class="d-flex justify-content-between mb-3 text-secondary">
+                        <span class="x-small fw-bold letter-spacing-1">LICENCIAS</span>
+                        <i class="bi bi-shield-check fs-5"></i>
+                    </div>
+                    <h2 class="fw-bold mb-1 display-6" id="stat-licenses">0</h2>
+                    <p class="text-warning x-small fw-bold mb-0 mt-auto">Vigentes</p>
+                </div>
+
+                <!-- KPI: Tutorials -->
+                <div class="bento-card pointer-cursor" onclick="window.switchView('tutorials')">
+                    <div class="d-flex justify-content-between mb-3 text-secondary">
+                        <span class="x-small fw-bold letter-spacing-1">GUÍAS</span>
+                        <i class="bi bi-journal-text fs-5"></i>
+                    </div>
+                    <h2 class="fw-bold mb-1 display-6" id="stat-tutorials">0</h2>
+                    <p class="text-info x-small fw-bold mb-0 mt-auto">Aprender</p>
+                </div>
+
+                <!-- Calendar Section -->
+                <div class="bento-card bento-span-2 bento-row-1" style="min-height: 400px; padding: 2rem;">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 class="fw-bold m-0"><i class="bi bi-calendar3 me-2 text-primary"></i>Agenda Global</h4>
+                        <span class="badge bg-light text-dark rounded-pill border py-2 px-3"
+                            id="mini-calendar-month-display">Mes Año</span>
+                    </div>
+                    <div class="mini-calendar-grid text-muted fw-bold small opacity-75 mb-3">
+                        <div>DOM</div>
+                        <div>LUN</div>
+                        <div>MAR</div>
+                        <div>MIE</div>
+                        <div>JUE</div>
+                        <div>VIE</div>
+                        <div>SAB</div>
+                    </div>
+                    <div id="mini-calendar-grid" class="mini-calendar-grid gap-2 border-0"></div>
+                </div>
+
+                <!-- Alerts Center -->
+                <div class="bento-card bento-span-2 bento-row-1">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-bell me-2 text-danger"></i>Centro de Alertas</h5>
+                    <div id="dashboard-alerts" class="mt-1">
+                        <!-- Loaded via JS -->
+                    </div>
+                </div>
+
+                <!-- Quick Notes (Bento Style) -->
+                <div class="bento-card bento-span-2 bento-row-1" id="notes-dashboard-card" style="cursor: pointer;"
+                    onclick="window.expandNotes()">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="fw-bold m-0 text-dark">
+                            <i class="bi bi-journal-text me-2 text-primary"></i>Notas
+                        </h5>
+                        <button class="btn btn-sm btn-premium-primary rounded-pill px-3 fw-bold"
+                            onclick="event.stopPropagation(); window.openModal('notes')">
+                            <i class="bi bi-plus-lg me-1"></i> Nueva
+                        </button>
+                    </div>
+                    <div id="notes-dashboard-list" class="list-group list-group-flush overflow-auto"
+                        style="max-height: 250px;">
+                        <div class="p-4 text-center text-muted x-small">Cargando notas...</div>
+                    </div>
+                </div>
+
+                <!-- Status Distribution -->
+                <div class="bento-card bento-span-2 bento-row-1">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-pie-chart me-2 text-success"></i>Estado General</h5>
+                    <div style="height: 200px; position: relative;">
+                        <canvas id="inventoryBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-inventory">
+        <div class="animate-fade-in">
+            <!-- Cards Header -->
+            <div class="row g-4 mb-4" id="inventory-cards">
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm rounded-4 section-nav-card active nav-card-primary premium-primary p-4"
+                        onclick="window.switchSubView('inventory', 'inventory')">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary">
+                            <i class="bi bi-pc-display fs-3"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Computadoras</h6>
+                            <p class="text-muted small mb-0">Gestión de PCs, Laptops, Workstations y Servidores.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm rounded-4 section-nav-card nav-card-success premium-success p-4"
+                        onclick="window.switchSubView('inventory', 'cellphones')">
+                        <div class="icon-box bg-success bg-opacity-10 text-success">
+                            <i class="bi bi-phone fs-3"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Celulares</h6>
+                            <p class="text-muted small mb-0">Relación de equipos celulares, líneas y Contraseñas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Table Area -->
+            <div id="inventory-table-container">
+                <!-- Table injected by JS -->
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-peripherals-view">
+        <div class="animate-fade-in">
+            <!-- Cards Header -->
+            <div class="row g-4 mb-4" id="peripherals-cards">
+                <div class="col-md-12">
+                    <div
+                        class="card border-0 shadow-sm rounded-4 section-nav-card active nav-card-warning premium-warning p-4">
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="icon-box bg-warning bg-opacity-10 text-warning mb-0">
+                                <i class="bi bi-keyboard-fill fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Accesorios y Periféricos</h5>
+                                <p class="text-muted small mb-0">Control de accesorios de TI como teclados, mouse y
+                                    monitores.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Table Area -->
+            <div id="peripherals-table-container">
+                <!-- Table injected by JS -->
             </div>
         </div>
     </template>
 
     <template id="tpl-table-view">
-        <div class="table-container glass-panel animate-fade-in">
-            <div class="table-header">
-                <div class="table-actions">
-                    <button class="btn btn-primary btn-sm" id="btn-add-item">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                        Añadir Nuevo
-                    </button>
-                    <button class="btn btn-outline btn-sm">Exportar CSV</button>
+        <div class="animate-fade-in">
+            <div class="row g-4 mb-4" id="generic-cards-container">
+                <div class="col-md-12">
+                    <div class="card border-0 shadow-sm rounded-4 section-nav-card active nav-card-primary premium-primary p-4"
+                        id="single-table-header-card">
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="icon-box bg-primary bg-opacity-10 text-primary mb-0">
+                                <i class="bi bi-grid-fill fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1" id="single-table-title">Registros</h5>
+                                <p class="text-muted small mb-0" id="single-table-desc">Gestión completa de datos
+                                    registrados en este módulo.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="responsive-table">
-                <table id="data-table">
-                    <thead>
-                        <tr id="table-head-row">
-                            <!-- Headers will be injected -->
-                        </tr>
-                    </thead>
-                    <tbody id="table-body">
-                        <!-- Rows will be injected -->
-                    </tbody>
-                </table>
+
+            <div class="card card-table-premium shadow-sm">
+                <div class="card-header bg-white border-0 py-3 d-flex justify-content-end align-items-center">
+                    <div class="d-flex gap-2">
+                        <button
+                            class="btn btn-premium-primary d-flex align-items-center fw-bold px-4 py-2 btn-responsive-mobile"
+                            id="btn-add-item" onclick="window.openModal('generic')">
+                            <i class="bi bi-plus-lg me-md-2"></i> <span class="btn-text">Nuevo Registro</span>
+                            <span class="kbd-hint d-none d-md-inline ms-2">ALT+N</span>
+                        </button>
+                        <button
+                            class="btn btn-outline-primary d-flex align-items-center fw-bold px-4 py-2 btn-responsive-mobile"
+                            id="btn-export">
+                            <i class="bi bi-file-earmark-excel me-md-2"></i> <span class="btn-text">Excel</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0" id="data-table">
+                            <thead class="table-light">
+                                <tr id="table-head-row">
+                                    <!-- Headers -->
+                                </tr>
+                            </thead>
+                            <tbody id="table-body">
+                                <!-- Rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </template>
 
-    <script src="app.js"></script>
+    <template id="tpl-printers-view">
+        <div class="animate-fade-in">
+            <!-- Cards Header -->
+            <div class="row g-4 mb-5" id="printers-cards">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 section-nav-card active nav-card-primary premium-primary p-4"
+                        onclick="window.switchSubView('printers', 'printers')">
+                        <div class="d-flex align-items-start gap-4">
+                            <div class="icon-box bg-primary bg-opacity-10 text-primary">
+                                <i class="bi bi-printer-fill fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Inventario de Impresoras</h5>
+                                <p class="text-muted small mb-0">Gestión de dispositivos, marcas y modelos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 section-nav-card nav-card-info premium-info p-4"
+                        onclick="window.switchSubView('printers', 'inks')">
+                        <div class="d-flex align-items-start gap-4">
+                            <div class="icon-box bg-info bg-opacity-10 text-info">
+                                <i class="bi bi-droplet-fill fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Inventario de Tintas</h5>
+                                <p class="text-muted small mb-0">Stock de tintas y consumibles de color.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 section-nav-card nav-card-warning premium-warning p-4"
+                        onclick="window.switchSubView('printers', 'toner')">
+                        <div class="d-flex align-items-start gap-4">
+                            <div class="icon-box bg-warning bg-opacity-10 text-warning">
+                                <i class="bi bi-moisture fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Control de Tóner</h5>
+                                <p class="text-muted small mb-0">Stock de tóners para impresoras láser.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Table Area -->
+            <div id="printers-table-container">
+                <!-- Table injected by JS -->
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-notes-view">
+        <div class="animate-fade-in">
+            <!-- Cards Header -->
+            <div class="row g-4 mb-4">
+                <div class="col-md-12">
+                    <div
+                        class="card border-0 shadow-sm rounded-4 section-nav-card active nav-card-warning premium-warning p-4">
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="icon-box bg-warning bg-opacity-10 text-warning mb-0">
+                                <i class="bi bi-journal-text fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1">Gestión de Notas</h5>
+                                <p class="text-muted small mb-0">Notas internas, recordatorios y apuntes rápidos del
+                                    equipo TI.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-table-premium shadow-sm">
+                <div class="card-header bg-white border-0 py-3 d-flex justify-content-between align-items-center">
+                    <!-- Selection actions removed as requested -->
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-export d-flex align-items-center" onclick="window.exportTable('notes')">
+                            <i class="bi bi-file-earmark-excel me-2"></i>Exportar
+                        </button>
+                    </div>
+                    <div class="ms-auto d-flex gap-2">
+                        <button class="btn btn-premium-warning d-flex align-items-center fw-bold px-4 py-2"
+                            onclick="window.openModal('notes')">
+                            <i class="bi bi-plus-lg me-md-2"></i> <span class="btn-text">Nueva Nota</span>
+                            <span class="kbd-hint d-none d-md-inline ms-2">ALT+N</span>
+                        </button>
+                    </div>
+
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr id="table-head-notes">
+                                    <th style="width: 60px;">ID</th>
+                                    <th>Título / Nota</th>
+                                    <th>Fecha</th>
+                                    <th class="text-end">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-notes"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-emails-view">
+        <div class="animate-fade-in">
+            <!-- Cards Header -->
+            <div class="row g-4 mb-4" id="emails-cards">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 section-nav-card active nav-card-success premium-success p-4"
+                        onclick="window.switchSubView('emails', 'microsoft_emails')">
+                        <div class="icon-box bg-success bg-opacity-10 text-success">
+                            <i class="bi bi-microsoft fs-3"></i>
+                        </div>
+                        <h6 class="fw-bold mb-1">Office 365</h6>
+                        <p class="text-muted small mb-0">Gestión de suscripciones y dominios 365.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 section-nav-card nav-card-info premium-info p-4"
+                        onclick="window.switchSubView('emails', 'office_emails')">
+                        <div class="icon-box bg-info bg-opacity-10 text-info">
+                            <i class="bi bi-windows fs-3"></i>
+                        </div>
+                        <h6 class="fw-bold mb-1">Correos Windows</h6>
+                        <p class="text-muted small mb-0">Cuentas activas en equipos Windows.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 section-nav-card nav-card-primary premium-primary p-4"
+                        onclick="window.switchSubView('emails', 'emails')">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary">
+                            <i class="bi bi-arrow-repeat fs-3"></i>
+                        </div>
+                        <h6 class="fw-bold mb-1">Correos Reenviados</h6>
+                        <p class="text-muted small mb-0">Historial de reenvíos y backups de usuarios.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Table Area -->
+            <div id="emails-table-container">
+                <!-- Table injected by JS -->
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-network-view">
+        <div class="animate-fade-in">
+            <!-- Cards Header -->
+            <div class="row g-4 mb-4" id="network-cards">
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm rounded-4 section-nav-card active nav-card-primary premium-primary p-4"
+                        onclick="window.switchSubView('network', 'network')">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary">
+                            <i class="bi bi-router fs-3"></i>
+                        </div>
+                        <h6 class="fw-bold mb-1">Dispositivos de Red</h6>
+                        <p class="text-muted small mb-0">Switches, routers, access points y servidores físicos.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm rounded-4 section-nav-card nav-card-info premium-info p-4"
+                        onclick="window.switchSubView('network', 'enterprise_networks')">
+                        <div class="icon-box bg-info bg-opacity-10 text-info">
+                            <i class="bi bi-wifi fs-3"></i>
+                        </div>
+                        <h6 class="fw-bold mb-1">Red Empresarial</h6>
+                        <p class="text-muted small mb-0">Gestión de SSIDs, Contraseñas y ubicaciones de nodos WiFi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Table Area -->
+            <div id="network-table-container">
+                <!-- Table injected by JS -->
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-licenses-view">
+        <div class="animate-fade-in">
+            <!-- Cards Header -->
+            <div class="row g-4 mb-4" id="licenses-cards">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 section-nav-card active nav-card-primary premium-primary p-4"
+                        onclick="window.switchSubView('licenses', 'licenses_cred')">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary">
+                            <i class="bi bi-key fs-3"></i>
+                        </div>
+                        <h6 class="fw-bold mb-1">Credenciales de Acceso</h6>
+                        <p class="text-muted small mb-0">Usuarios y Contraseñas de servicios críticos.</p>
+                    </div>
+                </div>
+                <!-- NUEVO: Correos de Outlook -->
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 section-nav-card nav-card-info premium-info p-4"
+                        onclick="window.switchSubView('licenses', 'correos_outlook')">
+                        <div class="icon-box bg-info bg-opacity-10 text-info">
+                            <i class="bi bi-envelope-at fs-3"></i>
+                        </div>
+                        <h6 class="fw-bold mb-1">Correos de Outlook</h6>
+                        <p class="text-muted small mb-0">Gestión de cuentas corporativas externas.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 section-nav-card nav-card-success p-4"
+                        onclick="window.switchSubView('licenses', 'licenses')">
+                        <div class="icon-box bg-success bg-opacity-10 text-success">
+                            <i class="bi bi-shield-lock fs-3"></i>
+                        </div>
+                        <h6 class="fw-bold mb-1">Licencias de Software</h6>
+                        <p class="text-muted small mb-0">Keys, fechas de vencimiento y estados de activación.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Table Area -->
+            <div id="licenses-table-container">
+                <!-- Table injected by JS -->
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-tutorials">
+        <div class="row g-4 mb-4">
+            <div class="col-12 d-flex justify-content-between align-items-center">
+                <h4 class="fw-bold m-0 text-dark">Biblioteca de Tutoriales</h4>
+                <button class="btn btn-primary fw-bold" id="btn-add-tutorial">
+                    <i class="bi bi-cloud-upload me-2"></i> Subir PDF
+                </button>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="tutorials-container">
+            <!-- Cards injected via JS -->
+        </div>
+    </template>
+
+    <template id="tpl-ftp">
+        <div class="animate-fade-in">
+            <div class="row g-4 mb-4">
+                <div class="col-12 d-flex justify-content-between align-items-center">
+                    <h4 class="fw-bold m-0 text-dark">Gestor de Archivos FTP</h4>
+                    <button class="btn btn-primary fw-bold" id="btn-upload-file">
+                        <i class="bi bi-cloud-upload me-2"></i> Subir Archivo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lista de archivos -->
+            <div class="card card-table-premium shadow-sm">
+                <div class="card-header bg-white border-0 py-3">
+                    <h5 class="fw-bold m-0"><i class="bi bi-files me-2"></i>Archivos Disponibles</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th><i class="bi bi-file-earmark me-2"></i>Nombre</th>
+                                    <th>Tamaño</th>
+                                    <th>Fecha</th>
+                                    <th class="text-end">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ftp-files-list">
+                                <!-- Files will be injected here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Upload File Modal -->
+    <div class="modal fade" id="uploadModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-primary text-white py-3">
+                    <h5 class="modal-title fw-bold">Subir Archivo al FTP</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <form id="upload-form" enctype="multipart/form-data">
+                    <div class="modal-body p-4">
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">Seleccionar Archivo</label>
+                            <input type="file" class="form-control" id="file-input" name="file" required>
+                            <div class="form-text">Puedes subir cualquier tipo de archivo</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer bg-light p-3">
+                        <button type="button" class="btn btn-secondary px-4 fw-bold"
+                            data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary px-4 fw-bold" id="btn-upload">
+                            <i class="bi bi-upload me-2"></i>Subir
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF Viewer Modal -->
+    <div class="modal fade" id="pdfModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered" style="height: 90vh;">
+            <div class="modal-content h-100 border-0 shadow-lg">
+                <div class="modal-header bg-dark text-white py-2 border-0">
+                    <h5 class="modal-title small fw-bold" id="pdfModalLabel">Visualizador de PDF</h5>
+                    <div class="ms-auto d-flex align-items-center gap-1">
+                        <button type="button" class="btn-icon-sm border-0 bg-transparent text-white"
+                            onclick="window.toggleFullScreenPdf()" title="Pantalla Completa">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </button>
+                        <button type="button" class="btn-icon-sm border-0 bg-transparent text-white"
+                            data-bs-dismiss="modal" title="Cerrar">
+                            <i class="bi bi-x-lg fs-6"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body p-0 h-100 bg-secondary">
+                    <iframe id="pdf-frame" src="" width="100%" height="100%" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendar View Modal -->
+    <div class="modal fade" id="calendarModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header bg-primary text-white py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="modal-title fw-bold m-0">Calendario de Actividades</h5>
+                    <button type="button" class="btn-icon-sm border-0 bg-transparent text-white" data-bs-dismiss="modal"
+                        title="Cerrar">
+                        <i class="bi bi-x-lg fs-5"></i>
+                    </button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="d-flex flex-column flex-lg-row h-100" style="min-height: 500px;">
+                        <!-- Calendar View -->
+                        <div class="flex-grow-1 p-4 border-end">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h4 class="fw-bold text-dark m-0" id="full-calendar-month">Mes Año</h4>
+                                <div class="btn-group">
+                                    <button class="btn btn-outline-secondary btn-sm" onclick="window.changeMonth(-1)"><i
+                                            class="bi bi-chevron-left"></i></button>
+                                    <button class="btn btn-outline-secondary btn-sm" onclick="window.changeMonth(1)"><i
+                                            class="bi bi-chevron-right"></i></button>
+                                </div>
+                            </div>
+                            <div class="row mb-2 text-center text-muted fw-bold small">
+                                <div class="col">Dom</div>
+                                <div class="col">Lun</div>
+                                <div class="col">Mar</div>
+                                <div class="col">Mié</div>
+                                <div class="col">Jue</div>
+                                <div class="col">Vie</div>
+                                <div class="col">Sáb</div>
+                            </div>
+                            <div id="full-calendar-grid" class="full-calendar-grid">
+                                <!-- Grid -->
+                            </div>
+                        </div>
+                        <!-- Reminders Panel -->
+                        <div class="bg-light p-4" style="min-width: 320px; max-width: 400px;">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="fw-bold text-dark m-0">Recordatorios</h5>
+                            </div>
+                            <div id="selected-date-display" class="text-primary fw-bold mb-3 small">Selecciona una
+                                fecha
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Nuevo Recordatorio</label>
+                                <div class="input-group">
+                                    <input type="text" id="reminder-input" class="form-control"
+                                        placeholder="Escribe aquí...">
+                                    <button class="btn btn-primary fw-bold" onclick="window.addReminder()">
+                                        <i class="bi bi-plus-lg"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <hr class="text-muted opacity-25">
+
+                            <div id="reminders-list" class="vstack gap-2" style="max-height: 350px; overflow-y: auto;">
+                                <!-- List -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pattern Locker Modal -->
+    <div class="modal fade" id="patternModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 350px;">
+            <div class="modal-content border-0 shadow-lg rounded-4 bg-dark text-white">
+                <div class="modal-header border-0 pb-0 d-flex justify-content-between align-items-center">
+                    <h5 class="modal-title fw-bold m-0">Registrar Patrón</h5>
+                    <button type="button" class="btn-icon-sm border-0 bg-transparent text-white" data-bs-dismiss="modal"
+                        title="Cerrar">
+                        <i class="bi bi-x-lg fs-5"></i>
+                    </button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <p class="text-muted small mb-4">Dibuja el Patrón conectando los puntos</p>
+
+                    <div id="pattern-container" class="pattern-container mx-auto">
+                        <canvas id="pattern-canvas" width="240" height="240"></canvas>
+                        <div class="pattern-grid">
+                            <div class="pattern-dot" data-index="1"></div>
+                            <div class="pattern-dot" data-index="2"></div>
+                            <div class="pattern-dot" data-index="3"></div>
+                            <div class="pattern-dot" data-index="4"></div>
+                            <div class="pattern-dot" data-index="5"></div>
+                            <div class="pattern-dot" data-index="6"></div>
+                            <div class="pattern-dot" data-index="7"></div>
+                            <div class="pattern-dot" data-index="8"></div>
+                            <div class="pattern-dot" data-index="9"></div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 d-flex gap-2">
+                        <button class="btn btn-outline-light w-100 fw-bold"
+                            onclick="window.resetPattern()">Limpiar</button>
+                        <button class="btn btn-primary w-100 fw-bold" onclick="window.savePattern()">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF/Excel/Chart Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+    <script src="https://unpkg.com/html5-qrcode" defer></script>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="app.js?v=7.4" defer></script>
+    <div id="toast-container"></div>
+
+    <!-- Side Drawer -->
+    <div id="drawer-backdrop" onclick="window.toggleDrawer()"></div>
+    <div id="side-drawer" class="side-drawer">
+        <div class="drawer-header">
+            <h5 class="fw-bold m-0" id="drawer-title">Detalles</h5>
+            <button class="btn-icon-sm border-0 bg-transparent text-white" onclick="window.toggleDrawer()">
+                <i class="bi bi-x-lg fs-5"></i>
+            </button>
+        </div>
+        <div class="drawer-body" id="drawer-content">
+            <!-- Content injected via JS -->
+        </div>
+    </div>
 </body>
+
+
+
 </html>
